@@ -1,0 +1,57 @@
+q6.  
+1. .groupby() allows to reference either column names or index level names, 
+so the column names and index level names could be grouped together, which is much easier.
+
+2. it discard the panel and use 2-level MultiIndexed DataFrame when useing the
+.rolling(..), .expanding(..), or .ewm(..), so the new talbe are easier to read.
+
+3. the pandas create a new type of numerical index,UInt64Index; and it could support more 
+operations of unsigned, or purely non-negative, integers which was not supported before.
+   
+
+
+q7.
+'loc' works on labels in the index.
+'iloc' works on the positions in the index (so it only takes integers).
+
+
+
+
+
+q8.
+import csv
+import json 
+
+
+myObj=[
+    {
+    "name":"John",
+    "age":30,
+    "cars": {
+        "car1":"Ford",
+        "car2":"BMW",
+        "car3":"Fiat"
+        }
+    }
+    ]
+    
+myObj1=json.dumps(myObj)
+myObj_data = json.loads(myObj1)
+f = csv.writer(open("test_str.csv", "w"))
+
+#csvwriter = csv.writer(myObj)
+
+for myObj in myObj_data:
+    f.writerow([myObj["name"],
+    myObj["age"],
+    myObj["cars"]["car1"],
+    myObj["cars"]["car2"],
+    myObj["cars"]["car3"]
+               ])
+
+
+q9.
+The reading is finished
+
+
+True
